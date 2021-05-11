@@ -35,13 +35,17 @@ while game_is_live:
 	# hits wall
 	if(snake.head.xcor()>280 or snake.head.xcor()<-280 
 		or snake.head.ycor()>280 or snake.head.ycor()<-280):
-		game_is_live = False
-		scoreboard.game_over()
+		scoreboard.reset()
+		snake.reset()
+		# game_is_live = False
+		# scoreboard.game_over()
 
 	# hits own tail
 	for seg in snake.segments[1:]:
 		if(snake.head.distance(seg) < 10):
-			game_is_live = False
-			scoreboard.game_over()
+			scoreboard.reset()
+			snake.reset()
+			# game_is_live = False
+			# scoreboard.game_over()
 
 screen.exitonclick()
